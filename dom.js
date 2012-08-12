@@ -60,6 +60,11 @@
 
     /* Manipulation */
 
+    empty: function(element) {
+      while (element.firstChild)
+        element.removeChild(element.firstChild);
+    },
+
     insertAfter: function(newElement, referenceElement) {
       if (referenceElement.parentNode.lastChild === referenceElement)
         referenceElement.parentNode.appendChild(newElement);
