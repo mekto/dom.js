@@ -82,6 +82,12 @@
 
     /* Creation */
 
+    createElement: function(html) {
+      var element = document.createElement('div');
+      element.innerHTML = html;
+      return element.children[0];
+    },
+
     createFragment: function(html) {
       var fragment = document.createDocumentFragment();
 
