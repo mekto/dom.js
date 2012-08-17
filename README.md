@@ -81,7 +81,7 @@ checkboxes.forEach(function(item) {
 Or:
 
 ``` javascript
-var i = checkboxes.length - 1;
+var i = checkboxes.length;
 while (i--) {
   checkboxes[i].checked = false;
 }
