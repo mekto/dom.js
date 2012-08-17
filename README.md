@@ -3,7 +3,7 @@ the DOM can be easy and we don't always need to use jQuery.
 
 Some examples using jQuery:
 
-```
+``` javascript
 var $element = $('#example');
 
 var id = $element.attr('id');
@@ -21,7 +21,7 @@ $element.hide();
 
 The same functionality written without using __any__ library:
 
-```
+``` javascript
 var element = document.getElementById('example');
 
 var id = element.id;
@@ -48,7 +48,7 @@ in the example above.
 
 Selecting element(s) - these are just shortcuts:
 
-```
+``` javascript
 var element, elements;
 
 // element = document.getElementById('example');
@@ -65,7 +65,7 @@ __Important!__ The last example returns `Array` instead of `NodeList`.
 
 If you want to work on array of elements, do:
 
-```
+``` javascript
 elements.forEach(function(element) {
   element.classList.toggle('hidden');
 });
@@ -73,7 +73,7 @@ elements.forEach(function(element) {
 
 Or:
 
-```
+``` javascript
 var i = elements.length;
 while (--i) {
   elements[i].classList.toggle('hidden');
@@ -82,7 +82,7 @@ while (--i) {
 
 Some other helpers (there are not many):
 
-```
+``` javascript
 dom.remove(element); // remove element from the DOM
 dom.empty(element); // remove all children from element
 dom.insertAfter(element, referenceElement);
@@ -96,7 +96,7 @@ Events
 
 For events [Bean](https://github.com/fat/bean/) micro library is internally used.
 
-```
+``` javascript
 dom.on(element, 'click', function(e) {
   // ...
 });
@@ -104,27 +104,27 @@ dom.on(element, 'click', function(e) {
 
 It supports event delegation:
 
-```
+``` javascript
 dom.on(element, 'click', '.target', function(e) {
   // ...
 });
-
+```
 
 To trigger an event simply call:
 
-```
+``` javascript
 element.click();
 ```
 
 Or:
 
-```
+``` javascript
 dom.trigger(element, 'click');
 ```
 
 `dom.ready` is also available:
 
-```
+``` javascript
 dom.ready(function(e) {
   // ...
 });
@@ -134,7 +134,6 @@ Effects
 -------
 
 Sorry, it is missing right now :(
-Yep, this is part we have to work on.
 
 Ajax
 ----
