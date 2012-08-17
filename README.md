@@ -11,7 +11,7 @@ var href = $element.attr('href');
 var parent = $element.parent();
 var targetUrl = $element.data('target-url');
 var next = $element.next();
-var html = $element.html():
+var html = $element.html();
 
 $element.css('border-color', 'red');
 $element.appendClass('important');
