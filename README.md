@@ -63,24 +63,31 @@ elements = dom.queryAll('.buttons');
 
 __Important!__ The last example returns `Array` instead of `NodeList`.
 
+To select element(s) inside given element use `find` or `findAll`:
+
+``` javascript
+var inner = dom.find(element, '.inner');
+var checkboxes = dom.findAll(element, '[type=checkbox]');
+```
+
 If you want to work on array of elements, do:
 
 ``` javascript
-elements.forEach(function(element) {
-  element.classList.toggle('hidden');
+checkboxes.forEach(function(item) {
+  item.checked = !item.checked; // toggle checkbox
 });
 ```
 
 Or:
 
 ``` javascript
-var i = elements.length;
-while (--i) {
-  elements[i].classList.toggle('hidden');
+var i = checkboxes.length - 1;
+while (i--) {
+  checkboxes[i].checked = false;
 }
 ```
 
-Some other helpers (there are not many):
+Some other helpers you can use (there are not many):
 
 ``` javascript
 dom.remove(element); // remove element from the DOM
@@ -94,7 +101,7 @@ var form = dom.closest(element, 'form');
 Events
 ------
 
-For events [Bean](https://github.com/fat/bean/) micro library is internally used.
+For events [Bean](https://github.com/fat/bean/) micro library is used internally.
 
 ``` javascript
 dom.on(element, 'click', function(e) {
@@ -133,7 +140,7 @@ dom.ready(function(e) {
 Effects
 -------
 
-Sorry, it is missing right now :(
+Sorry, this part is missing right now :(
 
 Ajax
 ----
