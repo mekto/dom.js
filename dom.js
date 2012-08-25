@@ -38,13 +38,13 @@
 
     /* Traversing */
 
-    closest: function(element, selector) {
+    closest: function(element, selector, maxElement) {
       var current = element;
       do {
         if (current.matchesSelector(selector))
           return current;
         current = current.parentElement;
-      } while (current);
+      } while (current && current != maxElement);
       return null;
     },
 
