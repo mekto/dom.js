@@ -4,18 +4,6 @@
   var dom = {
     /* Querying */
 
-    query: function(selector, ctx) {
-      if (!ctx)
-        ctx = document;
-      return ctx.querySelector(selector);
-    },
-
-    queryAll: function(selector, ctx) {
-      if (!ctx)
-        ctx = document;
-      return Array.prototype.slice.call(ctx.querySelectorAll(selector));
-    },
-
     id: function(identifier) {
       return document.getElementById(identifier);
     },
