@@ -2,6 +2,12 @@
   "use strict";
 
   var dom = {
+    /* Helpers */
+
+    toArray: function(nodelist) {
+      return Array.prototype.slice.call(nodelist);
+    },
+
     /* Querying */
 
     id: function(identifier) {
