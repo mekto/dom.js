@@ -63,6 +63,7 @@
     empty: function(element) {
       while (element.firstChild)
         element.removeChild(element.firstChild);
+      return element;
     },
 
     insertAfter: function(newElement, referenceElement) {
@@ -78,6 +79,7 @@
 
     remove: function(element) {
       element.parentNode.removeChild(element);
+      return element;
     },
 
     /* Creation */
@@ -85,7 +87,7 @@
     createElement: function(html) {
       var element = document.createElement('div');
       element.innerHTML = html;
-      return element.children[0];
+      return element.firstElementChild;
     },
 
     createFragment: function(html) {
