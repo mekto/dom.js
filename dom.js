@@ -18,20 +18,22 @@
 
     /* Events */
 
-    on: function(element, events, fn, delfn) {
-      return bean.add(element, events, fn, delfn);
+    on: function(element, types, fn) {
+      types.split(' ').forEach(function(type) {
+        element.addEventListener(type, fn, false);
+      });
+      return element;
     },
 
-    off: function(element, typeSpec, fn) {
-      return bean.remove(element, typeSpec, fn);
-    },
-
-    trigger: function(element, type, args) {
-      return bean.fire(element, type, args);
+    off: function(element, types, fn) {
+      types.split(' ').forEach(function(type) {
+        element.removeEventListener(type, fn, false);
+      });
+      return element;
     },
 
     ready: function(fn) {
-      return bean.add(document, 'DOMContentLoaded', fn);
+      document.addEventListener('DOMContentLoaded', fn);
     },
 
     /* Traversing */
