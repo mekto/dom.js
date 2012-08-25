@@ -16,7 +16,7 @@
       return Array.prototype.slice.call(ctx.querySelectorAll(selector));
     },
 
-    byId: function(identifier) {
+    id: function(identifier) {
       return document.getElementById(identifier);
     },
 
