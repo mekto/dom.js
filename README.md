@@ -52,25 +52,25 @@ Selecting element(s) - these are just shortcuts:
 var element, elements;
 
 // element = document.getElementById('example');
-element = dom.byId('example');
+element = dom.id('example');
 
 // element = document.querySelector('[type=submit]')
-element = dom.query('[type=submit]')
+element = dom.find('[type=submit]')
 
 // elements = document.querySelectorAll('.buttons');
-elements = dom.queryAll('.buttons');
+elements = dom.findAll('.buttons');
 ```
 
 __Important!__ The last example returns `Array` instead of `NodeList`.
 
-To select element(s) inside given element use `find` or `findAll`:
+You can pass `element` as the first argument of `find` and `findAll` methods:
 
 ``` javascript
 var inner = dom.find(element, '.inner');
 var checkboxes = dom.findAll(element, '[type=checkbox]');
 ```
 
-If you want to work on array of elements, do:
+If you want to work with array of elements, use `forEach`:
 
 ``` javascript
 checkboxes.forEach(function(item) {
@@ -78,7 +78,7 @@ checkboxes.forEach(function(item) {
 });
 ```
 
-Or:
+Or `while`:
 
 ``` javascript
 var i = checkboxes.length;
@@ -101,7 +101,7 @@ var form = dom.closest(element, 'form');
 Events
 ------
 
-For events [Bean](https://github.com/fat/bean/) micro library is used internally.
+For events use `addEventListener` or this shortcuts:
 
 ``` javascript
 dom.on(element, 'click', function(e) {
@@ -109,11 +109,13 @@ dom.on(element, 'click', function(e) {
 });
 ```
 
-It supports event delegation:
+Event delegation can be achieved as follows:
 
 ``` javascript
-dom.on(element, 'click', '.target', function(e) {
-  // ...
+dom.on(element, 'click', function(e) {
+  if (e.target.tagName === 'A') {
+    // ...
+  }
 });
 ```
 
@@ -121,12 +123,6 @@ To trigger an event simply call:
 
 ``` javascript
 element.click();
-```
-
-Or:
-
-``` javascript
-dom.trigger(element, 'click');
 ```
 
 `dom.ready` is also available:
@@ -141,8 +137,3 @@ Effects
 -------
 
 Sorry, this part is missing right now :(
-
-Ajax
-----
-
-Use my [Request.js](https://github.com/mekto/request.js) or anything you want.
