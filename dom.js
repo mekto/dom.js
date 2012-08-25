@@ -22,8 +22,8 @@
 
     findAll: function(element, selector) {
       if (typeof element === 'string')
-        return this.toArray(document.querySelectorAll(selector));
-      return this.toArray(element.querySelectorAll(selector));
+        return dom.toArray(document.querySelectorAll(selector));
+      return dom.toArray(element.querySelectorAll(selector));
     },
 
     /* Events */
