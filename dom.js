@@ -105,7 +105,7 @@
 
   exports.dom = dom;
 
-})(typeof exports !== 'undefined' ? exports : this);
+})(this);
 
 
 if (!Element.prototype.matchesSelector) {
