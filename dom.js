@@ -15,11 +15,15 @@
     },
 
     find: function(element, selector) {
-      return dom.query(selector, element);
+      if (typeof element === 'string')
+        return document.querySelector(element);
+      return element.querySelector(selector);
     },
 
     findAll: function(element, selector) {
-      return dom.query(selector, element);
+      if (typeof element === 'string')
+        return this.toArray(document.querySelectorAll(selector));
+      return this.toArray(element.querySelectorAll(selector));
     },
 
     /* Events */
