@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>dom.js tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="mocha/mocha.css" />
+    <script src="mocha/mocha.js"></script>
+    <script>mocha.setup({ ui: 'bdd', reporter: mocha.reporters.HTML })</script>
+    <script>
+      function assert(expr, msg) {
+        if (!expr) throw new Error(msg || 'failed');
+      }
+    </script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+
+    <div id="example"></div>
+
+    <script src="../dom.js"></script>
+    <script src="test.dom.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        mocha.run();
+      });
+    </script>
+  </body>
+</html>
