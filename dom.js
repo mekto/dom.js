@@ -22,7 +22,7 @@
 
     findAll: function(element, selector) {
       if (typeof element === 'string')
-        return dom.toArray(document.querySelectorAll(selector));
+        return dom.toArray(document.querySelectorAll(element));
       return dom.toArray(element.querySelectorAll(selector));
     },
 
